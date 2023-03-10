@@ -6,6 +6,17 @@
 <body>
   <h1>Welcome to Movie Search!</h1>
 
+  <form action="/results" method="GET">
+    <label for="title">Title: </label>
+    <input name="title" type="text" />
+    <label for="year">Year Released: </label>
+    <input name="year" type="number" min="1900" max="2018" />
+    <label for="starring">Starring: </label>
+    <input name="starring" type="text" />
+    <input type="submit" text="Search!" />
+  </form>
+
+
   <a href="/getData">View Raw Data</a>
 </body>
 </html>
