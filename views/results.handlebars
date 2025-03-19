@@ -19,6 +19,12 @@
 <body>
     <a href="/">Return to Search</a>
 
+    <span>Title: {{title}}</span>
+    <span>Year: {{year}}</span>
+
+    {{#each movies}}
+      <p>Title: {{this.title}}</p>
+    {{/each}}
     
 </body>
 </html>
