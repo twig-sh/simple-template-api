@@ -19,12 +19,39 @@
 <body>
     <a href="/">Return to Search</a>
 
-    <span>Title: {{title}}</span>
-    <span>Year: {{year}}</span>
+    {{#with query}}
+      {{#if title}}<span>Title: {{title}}</span>{{/if}}
+      {{#if year}}<span>Year: {{query.year}}</span>{{/if}}
+    {{/with}}
 
-    {{#each movies}}
-      <p>Title: {{this.title}}</p>
-    {{/each}}
+    {{#if movies}}
+      {{#each movies}}
+        <div class="movie">
+          <p>Title: {{this.title}}</p>
+          <p>Year: {{this.year}}</p>
+          {{#if this.cast}}
+            <p>Cast: </p>
+            <ul>
+              <li>
+              {{#each this.cast}}
+              <li>
+                {{#if this.isStarring}}
+                  <strong>{{this.name}}</strong>
+                {{else}}
+                  {{this.name}}
+                {{/if}}
+              </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </div>
+      {{/each}}
+
+      
+    {{else}}
+      <p>No Results</p>
+
+    {{/if}}
     
 </body>
 </html>

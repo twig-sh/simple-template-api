@@ -31,9 +31,21 @@ const getResults = (req, res) => {
   console.log(results);
 
   res.render('results', {
-    title,
-    year,
+    query: {
+      title,
+      year,
+      starring,
+    },
     movies: results,
+  });
+
+  results.forEach(movie => {
+    movie.cast = movie.cast.map(member => {
+      return {
+        name: member,
+        isStarring: starring.includes(member)
+      }
+    })
   });
 };
 
